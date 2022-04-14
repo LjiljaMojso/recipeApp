@@ -6,6 +6,7 @@ const searchInput = document.querySelector('input');
 const searchResultDiv = document.querySelector('.search-result');
 const conatainer = document.querySelector('.container');
 let searchValue = '';
+
 searchForm.addEventListener('submit', e => {
   e.preventDefault();
   searchValue = searchInput.value;
@@ -21,10 +22,10 @@ const renderSpinner = function (parentElement) {
   parentElement.prepend(markup);
 };
 
-const getData = async function (searchString) {
+const getData = async function (searchString, index = 0) {
   try {
     renderSpinner(searchResultDiv);
-    const url = `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=40`;
+    const url = `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${APP_KEY}&from=${index}`;
     const res = await fetch(url);
     const data = await res.json();
     console.log(data);
@@ -33,6 +34,7 @@ const getData = async function (searchString) {
     }
     totalResults(data.count);
     renderRecepies(data.hits);
+    createPagination(data.count);
   } catch (err) {
     console.error(err);
   }
@@ -45,8 +47,7 @@ const renderError = function () {
   searchResultDiv.insertAdjacentElement('beforebegin', markupError);
 };
 const totalResults = num => {
-  let total = '';
-  total = document.createElement('div');
+  let total = document.createElement('div');
   total.textContent = `Total results :${num}`;
   total.classList.add('total');
   searchResultDiv.insertAdjacentElement('beforebegin', total);
@@ -76,21 +77,38 @@ const renderRecepies = function (results) {
   </div>`;
   });
   searchResultDiv.innerHTML = recepieCard;
-
-  //renderBtn();
 };
-/* const renderBtn = () => {
-  const button = document.createElement('button');
-  button.innerHTML = ' Load more recipes...';
-  button.classList.add('btn');
-  conatainer.append(button);
-  button.addEventListener('click', e => {
-    let indexBtn = 20;
-    getData(indexBtn);
-    searchResultDiv.innerHTML = '';
+
+const createPagination = data => {
+  let pagesDiv = document.querySelector('.pagination');
+  let allPages = Math.round(data / 10);
+  let activePage = data.from / 10;
+  pagesDiv.innerHTML = '';
+
+  if (allPages > 10) allPages = 10;
+
+  for (let page = 1; page <= allPages; page++) {
+    if (page - 1 === activePage) {
+      let active = document.createElement('button', page);
+      active.classList.add('disabled');
+      pagesDiv.append(active);
+      continue;
+    }
+    const someButton = document.createElement('button', page);
+    someButton.textContent = page;
+    pagesDiv.append(someButton);
+  }
+
+  paginationOnClick();
+};
+const paginationOnClick = () => {
+  const paginationBtns = document.querySelectorAll('.pagination button');
+
+  paginationBtns.forEach(function (btn, i) {
+    const index = i * 10;
+    btn.addEventListener('click', () => {
+      getData(index);
+      window.scrollTo({ left: 0, top: 500, behavior: 'smooth' });
+    });
   });
-}; */
-//pagination
-/* const paginationEl = document.getElementById('pagination');
-let current_page = 1;
- */
+};

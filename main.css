@@ -97,6 +97,7 @@ form ion-icon {
   background-color: rgb(47, 168, 192);
   padding: 15px;
   overflow: hidden;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 .item img {
   width: 100%;
@@ -147,24 +148,38 @@ span {
   letter-spacing: 0.05rem;
   line-height: 1.2rem;
 }
-.btn {
-  width: 150px;
-  height: 45px;
-  border-radius: 45px;
-  cursor: pointer;
+
+/* PAGINATION */
+.pagination {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 25 auto;
+}
+.pagination button {
+  background-color: #bbc4ff;
+  color: whitesmoke;
   border: none;
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  font-size: 0.8em;
+  text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  cursor: pointer;
   font-weight: bold;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  text-align: center;
-  display: block;
-  margin: 30 auto;
 }
-.btn:hover {
+.pagination button:hover {
+  opacity: 0.5;
+  box-shadow: 0px 10px 25px rgba(13, 88, 218, 0.545);
   background: #2ceae5;
   transform: translateY(-7px);
-  color: #fff;
-  box-shadow: 0px 10px 25px rgba(46, 223, 229, 0.445);
+}
+.pagination button:disabled {
+  background-color: rgba(0, 166, 255, 0.637);
+  cursor: not-allowed;
 }
