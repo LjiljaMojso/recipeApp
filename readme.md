@@ -6,7 +6,6 @@ I create a food recipe app using vanilla JavaScript. It is a responsive web appl
 Just for practice
 
 ## Technologies Used
-
 -HTML
 -CSS
 -JavaScript
