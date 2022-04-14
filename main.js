@@ -10,8 +10,8 @@ let searchValue = '';
 searchForm.addEventListener('submit', e => {
   e.preventDefault();
   searchValue = searchInput.value;
-  getData(searchValue);
-  searchInput.value = '';
+  getData(searchValue, 0);
+  //searchInput.value = '';
 });
 const renderSpinner = function (parentElement) {
   const markup = document.createElement('img');
@@ -21,7 +21,7 @@ const renderSpinner = function (parentElement) {
   //parentElement.insertAdjacentElement('afterbegin', markup);
   parentElement.prepend(markup);
 };
-
+//geting data from api
 const getData = async function (searchString, index = 0) {
   try {
     renderSpinner(searchResultDiv);
@@ -46,12 +46,14 @@ const renderError = function () {
   searchResultDiv.innerHTML = '';
   searchResultDiv.insertAdjacentElement('beforebegin', markupError);
 };
+
 const totalResults = num => {
   let total = document.createElement('div');
   total.textContent = `Total results :${num}`;
   total.classList.add('total');
   searchResultDiv.insertAdjacentElement('beforebegin', total);
 };
+//rendering data
 const renderRecepies = function (results) {
   let recepieCard = '';
   results.forEach(item => {
@@ -79,6 +81,7 @@ const renderRecepies = function (results) {
   searchResultDiv.innerHTML = recepieCard;
 };
 
+//create pagination
 const createPagination = data => {
   let pagesDiv = document.querySelector('.pagination');
   let allPages = Math.round(data / 10);
@@ -107,7 +110,8 @@ const paginationOnClick = () => {
   paginationBtns.forEach(function (btn, i) {
     const index = i * 10;
     btn.addEventListener('click', () => {
-      getData(index);
+      searchValue = searchInput.value;
+      getData(searchValue, index);
       window.scrollTo({ left: 0, top: 500, behavior: 'smooth' });
     });
   });
