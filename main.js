@@ -6,7 +6,6 @@ const searchInput = document.querySelector('input');
 const searchResultDiv = document.querySelector('.search-result');
 const conatainer = document.querySelector('.container');
 let searchValue = '';
-
 searchForm.addEventListener('submit', e => {
   e.preventDefault();
   searchValue = searchInput.value;
@@ -40,18 +39,14 @@ const getData = async function (searchString, index = 0) {
   }
 };
 const renderError = function () {
-  const markupError = document.createElement('div');
+  const markupError = document.querySelector('.error');
   markupError.textContent = `We could not find that recipe. Please try another one!`;
-  markupError.classList.add('error');
   searchResultDiv.innerHTML = '';
-  searchResultDiv.insertAdjacentElement('beforebegin', markupError);
 };
 
 const totalResults = num => {
-  let total = document.createElement('div');
+  const total = document.querySelector('.total');
   total.textContent = `Total results :${num}`;
-  total.classList.add('total');
-  searchResultDiv.insertAdjacentElement('beforebegin', total);
 };
 //rendering data
 const renderRecepies = function (results) {
