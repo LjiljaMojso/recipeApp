@@ -21,7 +21,7 @@ section {
   align-items: center;
   padding: 100px 0;
   background-color: #a9c9ff;
-  background-image: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
+  background-image: linear-gradient (45deg, #80ffdb, #5390d9);
 }
 .container {
   width: 90%;
@@ -93,11 +93,15 @@ form ion-icon {
 }
 .item {
   width: 100%;
-  border-radius: 8px;
-  background-color: rgb(47, 168, 192);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 15px;
   overflow: hidden;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .item img {
   width: 100%;
@@ -112,7 +116,7 @@ h1.title {
   color: whitesmoke;
   margin: 20px 10px 0 0;
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 .view-btn {
   text-decoration: none;
@@ -144,7 +148,7 @@ h1.title {
 }
 span {
   font-size: 1.2rem;
-  color: rgba(237, 232, 232, 0.797);
+  color: #fff;
   letter-spacing: 0.05rem;
   line-height: 1.2rem;
 }
