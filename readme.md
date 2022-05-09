@@ -6,9 +6,9 @@ I create a food recipe app using vanilla JavaScript. It is a responsive web appl
 Just for practice
 
 ## Technologies Used
--HTML
--CSS
--JavaScript
+- HTML
+- CSS
+- JavaScript
 
 ### Api source
 
@@ -16,4 +16,4 @@ Just for practice
 
 ## Project Status
 
-Project is: _in progress_
+Project is: _finished_
