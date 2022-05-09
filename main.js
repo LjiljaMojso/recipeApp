@@ -65,7 +65,7 @@ const renderRecepies = function (results) {
       8
     )}</p>
 
-    <p class="item-data">Clories: ${Math.floor(item.recipe.calories)}</p>
+    <p class="item-data">Calories: ${Math.floor(item.recipe.calories)}</p>
     <h3 class="cuisine-type"> Cuisine Type:<span> ${
       item.recipe.cuisineType
     }</span></h3>
