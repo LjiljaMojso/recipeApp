@@ -9,9 +9,7 @@ Just for practice
 - HTML
 - CSS
 - JavaScript
-- 
-## Screenshots
-https://github.com/LjiljaMojso/recipeApp/blob/main/recipeApp-photo.png
+
 
 ### Api source
 
@@ -20,3 +18,6 @@ https://github.com/LjiljaMojso/recipeApp/blob/main/recipeApp-photo.png
 ## Project Status
 
 Project is: _finished_
+
+# Preview
+<img src="recipeApp-photo.png" height="500" style="border-radius:10px;margin-bottom:1rem;" />
