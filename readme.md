@@ -9,6 +9,9 @@ Just for practice
 - HTML
 - CSS
 - JavaScript
+- 
+## Screenshots
+https://github.com/LjiljaMojso/recipeApp/blob/main/recipeApp-photo.png
 
 ### Api source
 
